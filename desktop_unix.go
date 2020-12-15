@@ -170,6 +170,9 @@ func (x Xorg) active() xproto.Window {
 	if err != nil {
 		return x.root
 	}
+	if len(p.Value) == 0 {
+		return 0
+	}
 	return xproto.Window(xgb.Get32(p.Value))
 }
 
